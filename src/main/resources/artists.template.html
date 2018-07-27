@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ru" class="no-js playbar-masthead-release-shim">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My Last.fm</title>
+
+    <link rel='shortcut icon' href='/static/images/favicon.ico' type='image/ico'>
+    <link rel="stylesheet" href="/static/css/default.css" data-stylesheet-name="defaults" charset="utf-8">
+    <link rel="stylesheet" href="/static/css/app4.css" data-stylesheet-name="app" charset="utf-8">
+    <style>
+        .label-my {
+            margin-right: 4px !important;
+            padding-left: 5px !important;
+            padding-right: 5px !important;
+            line-height: 17px !important;
+        }
+        .label-success {
+            background-color: #5cb85c !important;
+
+        }
+        .label-danger {
+            background-color: #d9534f !important;
+        }
+        .chartlist .chartlist-countbar {
+            width: 400px !important;
+        }
+    </style>
+</head>
+<body class="anhv1 namespace--user_library_artists content-top-has-nav" >
+<div class="top-bar">
+    <section class="player-bar  inactive">
+        <div class="player-bar-inner-wrap">
+            <div class="player-bar-now-playing">
+                <div class="player-bar-now-playing-inner-wrap">
+                    <p class="player-bar-track " > Загрузка проигрывателя... </p>
+                    <p class="player-bar-error player-bar-status--hide"> <span class="player-bar-error-message js-player-error-message"></span> </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div id="content" class="main-content" role="main" aria-live="polite">
+    <div>
+        <nav class="masthead">
+            <div class="masthead-inner-wrap">
+                <div class="masthead-logo">
+                    <span class="masthead-logo-loading"></span>
+                    <a href="https://www.last.fm/ru/"> Last.fm</a>
+                </div>
+                <ul class=" site-auth site-auth--anon hidden-xs ">
+                    <li class="site-auth-item"><a class="site-auth-control" href="#" data-analytics-action="SignUpClick">Присоединиться</a></li>
+                    <li class="site-auth-item"><a class="site-auth-control" href="https://secure.last.fm/ru/login">Вход</a></li>
+                </ul>
+            </div>
+        </nav>
+        <header class="header header--with-avatar header--sub-page header--user">
+            <div class="header-background header-background--has-image" style="background-image: url(https://avatars.mds.yandex.net/get-pdb/211794/4022384e-e4ed-4ffb-9eff-2a1fadc25c05/s600);"></div>
+            <div class="container">
+                <div class="header-inner-wrap">
+                    <div class="header-avatar">
+                        <div class="expand-image-show-on-focus header-avatar-inner-wrap">
+                            <a href="https://www.last.fm/ru/user/taad2"> <img src="https://lastfm-img2.akamaized.net/i/u/avatar170s/02d8388c991344b0c44f30766af1c9d0.png" class="avatar" itemprop="image"> </a>
+                        </div>
+                    </div>
+                    <div class="header-info">
+                        <div class="header-info-primary header-info-primary--with-columns">
+                            <div class="header-info-primary-col1">
+                                <nav class="navlist secondary-nav navlist--more">
+                                    <ul class="navlist-items js-navlist-items">
+                                        <li class="navlist-item  secondary-nav-item secondary-nav-item--overview">
+                                            <a class="secondary-nav-item-link" href="https://www.last.fm/ru/user/taad2"> Обзор </a></li>
+                                        <li class="navlist-item  secondary-nav-item secondary-nav-item--week">
+                                            <a class="secondary-nav-item-link" href="https://www.last.fm/ru/user/taad2/listening-report/week"> Отчеты о прослушанной музыке </a></li>
+                                        <li class="navlist-item secondary-nav-item secondary-nav-item--library">
+                                            <a class="secondary-nav-item-link  secondary-nav-item-link--active" href="https://www.last.fm/ru/user/taad2/library"> Библиотека </a></li>
+                                        <li class="navlist-item secondary-nav-item secondary-nav-item--library">
+                                            <a class="secondary-nav-item-link" href="/open-last">Прошлый месяц</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div id="mantle_skin" class="adaptive-skin-container">
+            <div class="content-top">
+                <div class="content-top-inner-wrap">
+                    <div class="container content-top-lower">
+                        <h1 class="content-top-header"> Библиотека </h1>
+                        <div class="library-controls">
+                            <nav class="navlist secondary-nav navlist--more">
+                                <ul class="navlist-items js-navlist-items">
+                                    <li class="navlist-item secondary-nav-item secondary-nav-item--overview">
+                                        <a class="secondary-nav-item-link" href="https://www.last.fm/ru/user/taad2/library"> Прослушивания </a></li>
+                                    <li class="navlist-item secondary-nav-item secondary-nav-item--artists">
+                                        <a class="secondary-nav-item-link secondary-nav-item-link--active" href="https://www.last.fm/ru/user/taad2/library/artists"> Artists </a></li>
+                                    <li class="navlist-item secondary-nav-item secondary-nav-item--albums">
+                                        <a class="secondary-nav-item-link" href="https://www.last.fm/ru/user/taad2/library/albums"> Альбомы </a></li>
+                                    <li class="navlist-item  secondary-nav-item secondary-nav-item--tracks">
+                                        <a class="secondary-nav-item-link" href="https://www.last.fm/ru/user/taad2/library/tracks"> Композиции </a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container page-content">
+                <div class="row">
+                    <div class="col-main">
+                        <ul class="metadata-list">
+                            <li class="metadata-item"> <h2 class="metadata-title">Заскроблленные исполнители</h2> <p class="metadata-display">&nbsp;</p> </li>
+                        </ul>
+
+
+                        <section id="top-artists-section">
+                            <table class="chartlist chartlist--no-playlink chartlist--no-loved  chartlist--with-more chartlist--no-duration chartlist--no-timestamp
+                                        chartlist--big-image  chartlist--no-compact-image  chartlist--no-download">
+                                <thead class="sr-only">
+                                <tr>
+                                    <th>Рейтинг</th>
+                                    <th>Аватар</th>
+                                    <th>Исполнитель</th>
+                                    <th class="chartlist-more-heading">Настройки</th>
+                                    <th>Прослушивания</th>
+                                </tr>
+                                </thead>
+                                <tbody id="my-tr-list">
+                                <tr>
+                                    <td class="chartlist-index"> 1 </td>
+                                    <td class="chartlist-image"> <img src="https://lastfm-img2.akamaized.net/i/u/avatar70s/1739f6b9294f6584e78cf21696e8f32c.jpg" alt="Noize MC" class="avatar"> </td>
+                                    <td class="chartlist-name"> <span class="chartlist-ellipsis-wrap"> <a href="https://www.last.fm/ru/music/Noize+MC" class="link-block-target" title="Noize MC">Noize MC</a> </span> </td>
+                                    <td class="chartlist-more chartlist-focus-control-cell"> </td>
+                                    <td class="chartlist-countbar"> <span class="countbar-bar"> <span class="countbar-bar-slug" style="width:100.0%;"> <a href="https://www.last.fm/ru/user/taad2/library/music/Noize+MC" class="countbar-bar-value"> <span class="countbar-bar-value-wrapper"> 749 </span> </a> </span> </span> </td>
+                                </tr>
+                                <tr>
+                                    <td class="chartlist-index"> 2 </td>
+                                    <td class="chartlist-image"> <img src="https://lastfm-img2.akamaized.net/i/u/avatar70s/49f0643a681243c8bffa79cf295267eb.jpg" alt="Pain of Salvation" class="avatar"> </td>
+                                    <td class="chartlist-name"> <span class="chartlist-ellipsis-wrap"> <a href="https://www.last.fm/ru/music/Pain+of+Salvation" class="link-block-target" title="Pain of Salvation">Pain of Salvation</a> </span> </td>
+                                    <td class="chartlist-more chartlist-focus-control-cell"> </td>
+                                    <td class="chartlist-countbar"> <span class="countbar-bar"> <span class="countbar-bar-slug" style="width:93.45794392523365%;"> <a href="https://www.last.fm/ru/user/taad2/library/music/Pain+of+Salvation" class="countbar-bar-value"> <span class="countbar-bar-value-wrapper"> 700 <span class="stat-name">прослушиваний</span> </span> </a> </span> </span> </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div>
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer" style="background-color: #b6c0bf;" >
+            <div class="footer-top">
+                <div class="container">
+                    <div class="footer-top-row">
+                        <div class="footer-top-col">
+                            <h2 class="footer-heading">&nbsp;</h2>
+                            <ul class="footer-links">
+                                <li><br /></li>
+                                <li><br /></li>
+                                <li><br /></li>
+                                <li><br /></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+</body>
+</html>
