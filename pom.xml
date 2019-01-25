@@ -6,7 +6,7 @@
 
     <groupId>ru.redandspring</groupId>
     <artifactId>last-fm</artifactId>
-    <version>1.4-SNAPSHOT</version>
+    <version>1.5-SNAPSHOT</version>
 
     <build>
         <resources>

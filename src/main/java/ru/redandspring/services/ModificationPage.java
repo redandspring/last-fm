@@ -11,7 +11,9 @@ import ru.redandspring.config.PeriodCharts;
 
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
+import java.util.Objects;
 
 public class ModificationPage {
 
@@ -36,10 +38,15 @@ public class ModificationPage {
             htmlTr.append(innerRank(current, rank));
         }
 
-        String page = IOUtils.toString(getClass().getClassLoader().getResourceAsStream("artists.template.html"),"UTF-8");
-        Document doc = Jsoup.parse(page);
-        doc.select("#my-tr-list").empty().append(htmlTr.toString());
-        return doc.html();
+        try (final InputStream resourceAsStream = getClass().getClassLoader().getResourceAsStream("artists.template.html")){
+            Objects.requireNonNull(resourceAsStream);
+            String page = IOUtils.toString(resourceAsStream,"UTF-8");
+            Document doc = Jsoup.parse(page);
+            final String htmlTrString = htmlTr.toString();
+            final String htmlTrReplace = htmlTrString.replace("href=\"/", "href=\"https://www.last.fm/");
+            doc.select("#my-tr-list").empty().append(htmlTrReplace);
+            return doc.html();
+        }
     }
 
     private int calcRank(final List<String> charts, final String name, final int size, final int last){
