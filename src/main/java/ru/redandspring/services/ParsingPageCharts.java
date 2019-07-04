@@ -1,11 +1,13 @@
 package ru.redandspring.services;
 
+import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.jsoup.nodes.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.redandspring.config.Artist;
 import ru.redandspring.config.Charts;
 import ru.redandspring.config.PeriodCharts;
 
@@ -52,8 +54,33 @@ class ParsingPageCharts {
         }
     }
 
-    Elements findName(final Element element){
+    List<Artist> convertElementsChartToArtists(final List<Element> elements) {
+        final List<Artist> result = new ArrayList<>();
+        elements.forEach(element -> result.add(createArtist(element)));
+        return result;
+    }
+
+    private Elements findName(final Element element){
         return element.select("td.chartlist-name a.link-block-target");
+    }
+
+    private Artist createArtist(final Element el) {
+        final String position = findText(el, "td.chartlist-index");
+        final String countListen = StringUtils.substringBefore(findText(el, "span.chartlist-count-bar-value"), " ");
+        final String avatar = el.select("td.chartlist-image span.avatar img").get(0).attr("src");
+        final String stylePercent = el.select("td.chartlist-bar span.chartlist-count-bar-slug").get(0).attr("style");
+        final String artistLink = el.select("td.chartlist-bar a").get(0).attr("href");
+        return new Artist(
+                position,
+                findName(el).get(0).text(),
+                countListen,
+                avatar,
+                stylePercent,
+                artistLink);
+    }
+
+    private String findText(final Element element, final String query){
+        return StringUtils.trimToEmpty(element.select(query).get(0).text());
     }
 
     private void fillCharts(final String url, final List<String> result) throws IOException {
