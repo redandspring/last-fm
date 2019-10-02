@@ -14,7 +14,7 @@ public enum PeriodCharts {
 
     public String getDate() throws ServiceException {
 
-        final LocalDate now = LocalDate.now().withDayOfMonth(1);
+        final LocalDate now = LocalDate.now().withDayOfMonth(1).minusDays(1);
         if (eq(PeriodCharts.CURRENT_MONTH)){
             return now.format(FORMAT_MONTH);
         }
