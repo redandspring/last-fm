@@ -65,11 +65,11 @@ class ParsingPageCharts {
     }
 
     private Artist createArtist(final Element el) {
-        final String position = findText(el, "td.chartlist-index");
-        final String countListen = StringUtils.substringBefore(findText(el, "span.chartlist-count-bar-value"), " ");
-        final String avatar = el.select("td.chartlist-image span.avatar img").get(0).attr("src");
-        final String stylePercent = el.select("td.chartlist-bar span.chartlist-count-bar-slug").get(0).attr("style");
-        final String artistLink = el.select("td.chartlist-bar a").get(0).attr("href");
+        String position = findText(el, "td.chartlist-index");
+        String countListen = findCountListen(el);
+        String avatar = el.select("td.chartlist-image span.avatar img").get(0).attr("src");
+        String stylePercent = el.select("td.chartlist-bar span.chartlist-count-bar-slug").get(0).attr("style");
+        String artistLink = el.select("td.chartlist-bar a").get(0).attr("href");
         return new Artist(
                 position,
                 findName(el).get(0).text(),
@@ -81,6 +81,15 @@ class ParsingPageCharts {
 
     private String findText(final Element element, final String query){
         return StringUtils.trimToEmpty(element.select(query).get(0).text());
+    }
+
+    private String findHtml(final Element element, final String query){
+        return StringUtils.trimToEmpty(element.select(query).get(0).html());
+    }
+
+    private String findCountListen(final Element element) {
+        String query = "span.chartlist-count-bar-value";
+        return StringUtils.substringBefore(findHtml(element, query), " ");
     }
 
     private void fillCharts(final String url, final List<String> result) throws IOException {
