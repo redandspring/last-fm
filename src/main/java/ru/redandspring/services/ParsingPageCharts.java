@@ -65,7 +65,7 @@ class ParsingPageCharts {
     }
 
     private Artist createArtist(final Element el) {
-        String position = findText(el, "td.chartlist-index");
+        String position = findTextChartlistIndex(el);
         String countListen = findCountListen(el);
         String avatar = el.select("td.chartlist-image span.avatar img").get(0).attr("src");
         String stylePercent = el.select("td.chartlist-bar span.chartlist-count-bar-slug").get(0).attr("style");
@@ -79,8 +79,8 @@ class ParsingPageCharts {
                 artistLink);
     }
 
-    private String findText(final Element element, final String query){
-        return StringUtils.trimToEmpty(element.select(query).get(0).text());
+    private String findTextChartlistIndex(final Element element){
+        return StringUtils.trimToEmpty(element.select("td.chartlist-index").get(0).text());
     }
 
     private String findHtml(final Element element, final String query){
